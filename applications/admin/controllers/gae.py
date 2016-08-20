@@ -77,7 +77,7 @@ def deploy():
         write_file(yaml, data)
 
         path = request.env.applications_parent
-        cmd = '%s --email=%s --passin update %s' % \
+        cmd = '%s --email=%s update %s' % \
             (form.vars.appcfg, form.vars.email, path)
         p = cache.ram('gae_upload',
                       lambda s=subprocess, c=cmd: s.Popen(c, shell=True,
